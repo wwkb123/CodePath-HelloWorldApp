@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnChTxtStr;
     Button btnChViewColor;
     Button btnChTxtColor;
-    Button btnOK;
     ConstraintLayout constraintLayout;
 
     @Override
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         btnChTxtStr = findViewById(R.id.btnChTxtStr);
         btnChViewColor = findViewById(R.id.btnChViewColor);
         btnChTxtColor = findViewById(R.id.btnChTxtColor);
-        btnOK = findViewById(R.id.btnOK);
 
         editText = findViewById(R.id.editText);
         txtHello = findViewById(R.id.txtHello);
@@ -36,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
         btnChTxtStr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txtHello.setText("Android is Awesome!");
+                String text = editText.getText().toString();
+                if(!text.equals("")){
+                    txtHello.setText(text);
+                }else{
+                    txtHello.setText("Android is Awesome!");
+                }
             }
         });
 
@@ -54,23 +57,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String text = editText.getText().toString();
-                if(!text.equals("")){
-                    txtHello.setText(text);
-                }else{
-                    txtHello.setText(getResources().getString(R.string.hello));
-                }
-            }
-        });
 
         constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 editText.setText("");
-                txtHello.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
+                txtHello.setTextColor(getResources().getColor(R.color.black));
                 txtHello.setText(getResources().getString(R.string.hello));
                 constraintLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             }
