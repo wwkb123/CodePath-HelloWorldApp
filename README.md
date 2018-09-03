@@ -4,7 +4,7 @@
 My first app for CodePath
 
 ### App Walk-though
-<img src="demo.gif" width=200><br>
+<img src="demo" width=200><br>
 
 ### Required User Stories
 - [x] 1. User sees custom text in a label - Hello from {name}!
